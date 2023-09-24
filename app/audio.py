@@ -4,6 +4,8 @@ from pydub import AudioSegment
 from dotenv import dotenv_values
 import shutil
 
+openai_api_key = os.environ.get("OPENAI_API_KEY")
+
 class Audio:
     def __init__(self, input):
         self.input = input
@@ -41,8 +43,6 @@ class Audio:
 
     def get_transcribe(self, output):
         # Transcribe audio files
-        config = dotenv_values(".env")
-        openai_api_key = config["OPENAI_API_KEY"]
         openai.api_key = openai_api_key
         audio_file = open(output, "rb")
         transcript = openai.Audio.transcribe("whisper-1", audio_file)
