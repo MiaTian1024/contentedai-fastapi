@@ -4,7 +4,6 @@ from pydub import AudioSegment
 from dotenv import dotenv_values
 import shutil
 
-
 class Audio:
     def __init__(self, input):
         self.input = input
