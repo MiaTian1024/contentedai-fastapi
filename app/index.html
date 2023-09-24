@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Upload</title>
+</head>
+<body>
+    <h1>Upload an Audio File</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" name="file" accept="audio/*" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById("upload-form");
+        const resultDiv = document.getElementById("result");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const response = await fetch("https://contentedai-api.onrender.com/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            console.log(response)
+
+            if (response.ok) {
+                const data = await response.json();
+                resultDiv.innerHTML = `<p>${data.input_size}</p><p>${data.output_size}</p><p>Transcription:</p>${data.data}`;
+            } else {
+                resultDiv.innerHTML = "<p>Error uploading the file.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
