@@ -60,6 +60,7 @@ def upload(file: UploadFile = File(...)):
             "output_size": "Size of " + output + " is " + str(output_size_mb) +" MB"}
 
 
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
