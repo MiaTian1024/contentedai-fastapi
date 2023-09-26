@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydub import AudioSegment 
 from audio.audio import Audio
 
-
 app = FastAPI()
 
 
