@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Response, status, HTTPException, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydub import AudioSegment 
-from audio.audio import Audio
+from audio import Audio
 
 
 app = FastAPI()
@@ -58,7 +58,6 @@ def upload(file: UploadFile = File(...)):
             "data": transcription,
             "input_size": "Size of " + file.filename + " is " + str(input_size_mb) +" MB",
             "output_size": "Size of " + output + " is " + str(output_size_mb) +" MB"}
-
 
 
 if __name__ == "__main__":
