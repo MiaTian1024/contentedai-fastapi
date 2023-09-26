@@ -108,7 +108,7 @@ class Audio:
 
         return merged_transcription
     
-    
+
 
 if __name__ == "__main__":
     input = "/Users/miatian/Desktop/speech1.mp4"
