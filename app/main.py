@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Response, status, HTTPException, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydub import AudioSegment 
-import audio
+from audio import Audio
 
 
 app = FastAPI()
@@ -35,7 +35,7 @@ def upload(file: UploadFile = File(...)):
         file.file.close()
 
     input = file.filename
-    audio_file = audio.Audio(input)
+    audio_file = Audio(input)
     output = audio_file.convert_to_mp3()
 
     input_size = audio_file.get_size(input)
