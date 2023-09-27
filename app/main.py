@@ -129,7 +129,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to my api"}
+    return {"message": "Welcome to my fast api"}
 
 
 @app.post("/upload")
