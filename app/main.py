@@ -1,6 +1,9 @@
 from fastapi import FastAPI, Response, status, HTTPException, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydub import AudioSegment 
+import sys
+
+sys.path.append('/path/to/audio')
 from audio import Audio
 
 
