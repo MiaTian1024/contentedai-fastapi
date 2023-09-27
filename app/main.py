@@ -131,6 +131,10 @@ app.add_middleware(
 async def root():
     return {"message": "Welcome to my fast api"}
 
+@app.get("/audio")
+async def audio():
+    return {"message": "Audio data"}
+
 
 @app.post("/upload")
 def upload(file: UploadFile = File(...)):
